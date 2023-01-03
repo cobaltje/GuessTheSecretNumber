@@ -37,6 +37,12 @@ html {
   padding: 25px;
   /* Shadow */
   box-shadow: 0px 0px 100px 5px #5b53b3;
+  background: rgb(222, 241, 240);
+  background: linear-gradient(
+    0deg,
+    rgba(222, 241, 240, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .message {
@@ -49,54 +55,165 @@ html {
   padding: 5px;
   border-radius: 15px;
   margin-bottom: 15px;
-  color: #fff;
-  background: #0f2027; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #2c5364,
-    #203a43,
-    #0f2027
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  color: rgb(37, 28, 139);
+  background: rgb(222, 241, 240);
   background: linear-gradient(
-    to right,
-    #2c5364,
-    #203a43,
-    #0f2027
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    0deg,
+    rgba(222, 241, 240, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .guessinputbar {
   background-color: #2c5364;
   width: 500px;
   height: 70px;
-  margin-top: 3.5em;
   border-radius: 15px;
   display: inline-block;
   justify-content: center;
+  text-align: center;
   margin-left: 50%;
-  padding: 10px;
+  padding: 5px;
   transform: translate(-50%);
-  border: 2px solid rgb(109, 108, 108);
+  background: rgb(222, 241, 240);
+  background: linear-gradient(
+    0deg,
+    rgba(222, 241, 240, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .number {
-  font-size: 100px;
-  background-color: aqua;
+  color: #2c2576;
+  font-size: 150px;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   width: 30%;
+  height: 100%;
   float: left;
   margin-right: 5px;
   text-align: center;
+  border-radius: 15px;
+  background: rgb(174, 209, 207);
+  background: linear-gradient(
+    297deg,
+    rgba(174, 209, 207, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .guessbox {
-  background-color: blue;
+  height: 100%;
+  border-radius: 15px;
+  padding: 2px;
   width: 32%;
   float: left;
   margin-right: 5px;
+  background: rgb(174, 209, 207);
+  background: linear-gradient(
+    297deg,
+    rgba(174, 209, 207, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .scorebox {
-  background-color: #2c5364;
   width: 32%;
   float: left;
+  height: 100%;
+  border-radius: 15px;
+  background: rgb(174, 209, 207);
+  background: linear-gradient(
+    297deg,
+    rgba(174, 209, 207, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.guess {
+  width: 300px;
+  height: 65%;
+  background: rgb(58, 41, 70);
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.guess:focus {
+  background-color: #0f0c29;
+}
+
+::placeholder {
+  color: rgb(101, 86, 113);
+}
+
+.btn {
+  background-image: linear-gradient(
+    to right,
+    #5c258d 0%,
+    #4389a2 51%,
+    #5c258d 100%
+  );
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  float: right;
+  font-weight: bolder;
+}
+
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Modal */
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
 }

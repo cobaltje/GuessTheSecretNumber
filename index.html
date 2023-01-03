@@ -18,11 +18,36 @@
       <div class="message">Start guessing! 🤔</div>
       <div class="game">
         <div class="number">?</div>
-        <div class="guessbox">guess</div>
-        <div class="scorebox">score</div>
-        <div class="guessinputbar">input</div>
+        <div class="guessbox">
+          <p>
+            Previous guesses: <span class="prevguess">1,14,25,18,2,15</span>
+          </p>
+          <p>Highest guess: <span class="highguess"></span></p>
+          <p>Lowest guess: <span class="lowguess"></span></p>
+        </div>
+        <div class="scorebox">
+          <p>Score: <span class="score">20</span></p>
+          <p>Highscore: <span class="highscore"> </span></p>
+        </div>
+        <div class="guessinputbar">
+          <input type="number" class="guess" placeholder="Guess a number" />
+          <button class="btn check">✅ Check!</button>
+        </div>
       </div>
     </div>
+
+    <!-- Game Rules Modal-->
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>❓ Game rules</h1>
+      <p>
+        Try to guess the secret number in as less guesses as possible. Every
+        wrong guess will decrease one point. When you guess the same number
+        twice it will decrease two points. If you guessed the secret number you
+        win the game!
+      </p>
+    </div>
+    <div class="overlay hidden"></div>
 
     <!-- Including the game logic -->
     <script src="script.js"></script>
