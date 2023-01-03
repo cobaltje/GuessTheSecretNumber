@@ -1,0 +1,102 @@
+html {
+  background: #0f0c29; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Baloo Paaji 2", cursive;
+}
+
+.hidden {
+  display: none;
+}
+
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.game {
+  text-align: left;
+  background-color: aliceblue;
+  width: 950px;
+  height: 250px;
+  border-radius: 15px;
+  padding: 25px;
+  /* Shadow */
+  box-shadow: 0px 0px 100px 5px #5b53b3;
+}
+
+.message {
+  box-shadow: 5px;
+  display: inline-block;
+  margin: auto;
+  font-size: 25px;
+  width: 750px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  color: #fff;
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.guessinputbar {
+  background-color: #2c5364;
+  width: 500px;
+  height: 70px;
+  margin-top: 3.5em;
+  border-radius: 15px;
+  display: inline-block;
+  justify-content: center;
+  margin-left: 50%;
+  padding: 10px;
+  transform: translate(-50%);
+  border: 2px solid rgb(109, 108, 108);
+}
+
+.number {
+  font-size: 100px;
+  background-color: aqua;
+  width: 30%;
+  float: left;
+  margin-right: 5px;
+  text-align: center;
+}
+
+.guessbox {
+  background-color: blue;
+  width: 32%;
+  float: left;
+  margin-right: 5px;
+}
+
+.scorebox {
+  background-color: #2c5364;
+  width: 32%;
+  float: left;
+}
