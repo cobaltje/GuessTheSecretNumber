@@ -13,9 +13,13 @@
       rel="stylesheet"
     />
   </head>
+  <header>
+    <h1>Guess the [ ? ] number!</h1>
+  </header>
   <body>
     <div class="main">
       <div class="message">Start guessing! 🤔</div>
+
       <div class="game">
         <div class="number">?</div>
         <div class="guessbox">
@@ -30,7 +34,14 @@
           <p>Highscore: <span class="highscore"> </span></p>
         </div>
         <div class="guessinputbar">
-          <input type="number" class="guess" placeholder="Guess a number" />
+          <div class="info">?</div>
+          <input
+            type="number"
+            class="guess"
+            placeholder="Guess a number"
+            min="1"
+            max="20"
+          />
           <button class="btn check">✅ Check!</button>
         </div>
       </div>

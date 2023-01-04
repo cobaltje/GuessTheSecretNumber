@@ -15,6 +15,13 @@ html {
   font-family: "Baloo Paaji 2", cursive;
 }
 
+header {
+  font-size: 45px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 3px 3px 2px rgb(119, 48, 177);
+}
+
 .hidden {
   display: none;
 }
@@ -128,9 +135,13 @@ html {
     rgba(255, 255, 255, 1) 100%
   );
 }
+.info {
+  width: 500px;
+  display: inline;
+}
 
 .guess {
-  width: 300px;
+  width: 250px;
   height: 65%;
   background: rgb(58, 41, 70);
   font-size: 30px;

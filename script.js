@@ -14,8 +14,10 @@ function calculateSecretNumber() {
 // Main game logic
 document.querySelector(".check").addEventListener("click", function () {
   guess = Number(document.querySelector(".guess").value);
-  console.log(guess);
-  if (guess === 1) {
+
+  if (typeof guess === "number") {
+    console.log("good");
+  } else {
     console.log("not a number");
   }
 });
