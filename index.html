@@ -14,7 +14,7 @@
     />
   </head>
   <header>
-    <h1>Guess the [ ? ] number!</h1>
+    <h1>Guess the [ <span class="secretnumber">?</span> ] number!</h1>
   </header>
   <body>
     <div class="main">
@@ -46,7 +46,7 @@
     </div>
 
     <!-- Game Rules Modal-->
-    <div class="modal hidden">
+    <div class="modal modal-rules hidden">
       <button class="close-modal">&times;</button>
       <h1>❓ Game rules</h1>
       <p>
@@ -55,6 +55,13 @@
         twice it will decrease two points. If you guessed the secret number you
         win the game!
       </p>
+    </div>
+    <div class="modal modal-win hidden">
+      <button class="close-modal">&times;</button>
+      <h1>🏅 You won!</h1>
+      <p>Congratulations on winning the game!</p>
+      <p>Your score: <span class="score"></span></p>
+      <p>Your highscore: <span class="highscore"></span></p>
     </div>
     <div class="overlay hidden"></div>
 
