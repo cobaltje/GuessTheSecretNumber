@@ -17,7 +17,7 @@ const btnCloseModal = document.querySelector('.close-modal');
 if (localStorage.getItem('Highscore') === null) {
   localStorage.setItem('Highscore', 0);
   highscore = 0;
-  document.querySelector('highscore').textContent = highscore;
+  document.querySelector('.highscore').textContent = highscore;
 } else {
   highscore = localStorage.getItem('Highscore');
   document.querySelector('.highscore').textContent = highscore;
@@ -27,7 +27,7 @@ if (localStorage.getItem('Highscore') === null) {
 // Main game logic functions
 // Calculate the secret number
 function calculateSecretNumber() {
-  return Math.trunc(Math.random() * 20) + 1;
+  return Math.trunc(Math.random() * 50) + 1;
 }
 
 // Adjust the score after a guess
@@ -80,7 +80,7 @@ document.querySelector('.check').addEventListener('click', function () {
     displayMessage('First restart the game');
     return;
   }
-  if (1 <= guess && guess <= 20) {
+  if (1 <= guess && guess <= 50) {
     if (guess === secretNumber) {
       displayMessage('🥳 Victory!');
       if (score > highscore) {
@@ -115,7 +115,6 @@ btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
-  console.log(e);
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
   }
