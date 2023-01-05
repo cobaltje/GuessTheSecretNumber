@@ -3,7 +3,7 @@
 // Define the variables
 let secretNumber = calculateSecretNumber();
 let score = 20;
-let highscore = 0;
+let highscore;
 let previousGuesses = [];
 let guess;
 const modal = document.querySelector('.modal');
@@ -13,42 +13,63 @@ const modalinfo = document.querySelector('.modal-info');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 
-function popupModal(modaltype) {
-  modaltype.classList.remove('hidden');
-  overlay.classList.remove('hidden');
+// Checking for highScore and setting the value - If it does not exist, set it to zero
+if (localStorage.getItem('Highscore') === null) {
+  localStorage.setItem('Highscore', 0);
+  highscore = 0;
+  document.querySelector('highscore').textContent = highscore;
+} else {
+  highscore = localStorage.getItem('Highscore');
+  document.querySelector('.highscore').textContent = highscore;
 }
 
-function closeModal() {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
-}
-
+// Functionlist
+// Main game logic functions
+// Calculate the secret number
 function calculateSecretNumber() {
   return Math.trunc(Math.random() * 20) + 1;
 }
 
-function displayMessage(message) {
-  document.querySelector('.message').textContent = message;
-}
-
-function setHighscore(highscore) {
-  document.querySelector('.highscore').textContent = highscore;
-}
-
+// Adjust the score after a guess
 function setScore() {
   score--;
   document.querySelector('.score').textContent = score;
 }
 
+// Adjust the score after a not valid guess
 function penaltyScore(reason) {
   score = score - 2;
   document.querySelector('.score').textContent = score;
   displayMessage(reason);
 }
 
+// Add the guess to the guess list
 function addGuess(guess) {
   previousGuesses.push(guess);
   document.querySelector('.prevguess').textContent = previousGuesses;
+}
+
+// Setting a new highscore and store it in the localstorage
+function setHighscore(highscore) {
+  document.querySelector('.highscore').textContent = highscore;
+  localStorage.setItem('Highscore', highscore);
+}
+
+function displayMessage(message) {
+  document.querySelector('.message').textContent = message;
+}
+
+// Side Functions
+// Open the popup modal
+function popupModal(modaltype) {
+  modaltype.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+}
+
+// Close the popup modal
+function closeModal() {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
 }
 
 // Main game logic
@@ -66,8 +87,8 @@ document.querySelector('.check').addEventListener('click', function () {
         highscore = score;
         setHighscore(highscore);
       }
-      popupModal(modalwin);
-      overlay.classList.remove('hidden');
+      //popupModal(modalwin);
+      //overlay.classList.remove('hidden');
     } else if (score > 1) {
       if (guess !== secretNumber) {
         if (previousGuesses.includes(guess)) {
