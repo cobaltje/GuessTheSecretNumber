@@ -2,7 +2,7 @@
 
 // Define the variables
 let secretNumber = calculateSecretNumber();
-let score = 5;
+let score = 20;
 let highscore = 0;
 let previousGuesses = [];
 let guess;
