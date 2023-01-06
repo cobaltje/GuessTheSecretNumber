@@ -18,7 +18,14 @@
   </header>
   <body>
     <div class="main">
-      <div class="message">Start guessing! 🤔</div>
+      <div class="messagebar">
+        <div class="messagerow">
+          <span class="message">Start guessing! 🤔</span>
+        </div>
+        <div class="messagerowbutton">
+          <button class="btn info">🎲 Game Rules</button>
+        </div>
+      </div>
 
       <div class="game">
         <div class="number">?</div>
@@ -32,7 +39,6 @@
           <p>Highscore: <span class="highscore"> </span></p>
         </div>
         <div class="guessinputbar">
-          <div class="info">?</div>
           <input
             type="number"
             class="guess"
@@ -46,9 +52,9 @@
     </div>
 
     <!-- Game Rules Modal-->
-    <div class="modal modal-rules hidden">
+    <div class="modal modal-info hidden">
       <button class="close-modal">&times;</button>
-      <h1>❓ Game rules</h1>
+      <h1>🛃 Game rules</h1>
       <p>
         Try to guess the secret number in as less guesses as possible. Every
         wrong guess will decrease one point. When you guess the same number

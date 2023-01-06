@@ -6,12 +6,14 @@ let score = 20;
 let highscore;
 let previousGuesses = [];
 let guess;
-const modal = document.querySelector('.modal');
+let highguess;
+let lowguess;
+const modal = document.querySelectorAll('.modal');
 const modalwin = document.querySelector('.modal-win');
 const modalloss = document.querySelector('.modal-loss');
 const modalinfo = document.querySelector('.modal-info');
 const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.close-modal');
+const btnCloseModal = document.querySelectorAll('.close-modal');
 
 // Checking for highScore and setting the value - If it does not exist, set it to zero
 if (localStorage.getItem('Highscore') === null) {
@@ -51,7 +53,9 @@ function addGuess(guess) {
 
 // Setting a new highscore and store it in the localstorage
 function setHighscore(highscore) {
-  document.querySelector('.highscore').textContent = highscore;
+  document.querySelectorAll('.highscore').forEach(div => {
+    div.textContent = highscore;
+  });
   localStorage.setItem('Highscore', highscore);
 }
 
@@ -68,7 +72,12 @@ function popupModal(modaltype) {
 
 // Close the popup modal
 function closeModal() {
-  modal.classList.add('hidden');
+  console.log('You made it');
+  for (let i = 0; i < modal.length; i++) {
+    if (!modal[i].classList.contains('hidden')) {
+      modal[i].classList.add('hidden');
+    }
+  }
   overlay.classList.add('hidden');
 }
 
@@ -76,46 +85,85 @@ function closeModal() {
 document.querySelector('.check').addEventListener('click', function () {
   guess = Number(document.querySelector('.guess').value);
 
+  // Score is zero - restart the game first
   if (score === 0) {
     displayMessage('First restart the game');
     return;
   }
   if (1 <= guess && guess <= 50) {
+    // Player has guessed the secret number
     if (guess === secretNumber) {
       displayMessage('🥳 Victory!');
       if (score > highscore) {
         highscore = score;
         setHighscore(highscore);
+      } else {
+        document.querySelectorAll('.highscore').forEach(div => {
+          div.textContent = highscore;
+        });
       }
-      //popupModal(modalwin);
-      //overlay.classList.remove('hidden');
-    } else if (score > 1) {
+      popupModal(modalwin);
+      document.querySelectorAll('.score').forEach(div => {
+        div.textContent = score;
+      });
+      document.querySelector('.secretnumber').textContent = secretNumber;
+      document.querySelector('.number').textContent = secretNumber;
+    }
+    // Wrong guess
+    else if (score > 1) {
       if (guess !== secretNumber) {
+        // Repeated guess
         if (previousGuesses.includes(guess)) {
           penaltyScore('🚨 You already gave that number! -2 points!');
           addGuess(guess);
-          if (score <= 0) displayMessage('Game over');
+          if (score <= 0) displayMessage('☢️ Game over');
         } else {
-          displayMessage(guess > secretNumber ? 'Lower!' : 'Higher!');
+          // valid guess
+          displayMessage(guess > secretNumber ? '⏬ Lower!' : '⏫ Higher!');
           setScore();
           addGuess(guess);
+          // Lowest guess
+          if (guess < lowguess || typeof lowguess === 'undefined') {
+            lowguess = guess;
+            document.querySelector('.lowguess').textContent = lowguess;
+          }
+          // highest guess
+          if (guess > highguess || typeof highguess === 'undefined') {
+            highguess = guess;
+            document.querySelector('.highguess').textContent = highguess;
+          }
         }
       }
-    } else {
-      displayMessage('Game over');
+    }
+    // Game over
+    else {
+      displayMessage('☢️ Game over');
       setScore();
     }
-  } else {
+  }
+  // Not a valid number guess
+  else {
     penaltyScore('🚨 Not a valid number! -2 points!');
   }
 });
 
 /* Exiting the modals */
-btnCloseModal.addEventListener('click', closeModal);
+
+btnCloseModal.forEach(modal => {
+  modal.addEventListener('click', closeModal);
+});
 overlay.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-    closeModal();
+  for (let i = 0; i < modal.length; i++) {
+    if (e.key === 'Escape' && !modal[i].classList.contains('hidden')) {
+      closeModal();
+    }
   }
+});
+
+// Opening info modal
+
+document.querySelector('.info').addEventListener('click', function () {
+  popupModal(modalinfo);
 });

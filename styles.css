@@ -12,7 +12,7 @@ html {
     #302b63,
     #0f0c29
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-family: "Baloo Paaji 2", cursive;
+  font-family: 'Baloo Paaji 2', cursive;
 }
 
 header {
@@ -52,12 +52,13 @@ header {
   );
 }
 
-.message {
+.messagebar {
+  text-align: left;
   box-shadow: 5px;
   display: inline-block;
   margin: auto;
   font-size: 25px;
-  width: 750px;
+  width: 740px;
   height: 40px;
   padding: 5px;
   border-radius: 15px;
@@ -71,10 +72,27 @@ header {
   );
 }
 
+.messagerow {
+  float: left;
+}
+
+.messagerowbutton {
+  float: right;
+  margin-right: 150px;
+}
+
+.message {
+  width: 100%;
+  border-radius: 10px;
+  font-size: 25px;
+  text-align: center;
+  padding-left: 15px;
+}
+
 .guessinputbar {
   background-color: #2c5364;
   width: 500px;
-  height: 70px;
+  height: 50px;
   border-radius: 15px;
   display: inline-block;
   justify-content: center;
@@ -135,14 +153,10 @@ header {
     rgba(255, 255, 255, 1) 100%
   );
 }
-.info {
-  width: 500px;
-  display: inline;
-}
 
 .guess {
-  width: 250px;
-  height: 65%;
+  width: 360px;
+  height: 45px;
   background: rgb(58, 41, 70);
   font-size: 30px;
   color: rgb(255, 255, 255);
@@ -150,8 +164,8 @@ header {
   border: none;
   border-radius: 10px;
   float: left;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 3px;
+  margin-left: 3px;
 }
 
 .guess:focus {
@@ -160,18 +174,41 @@ header {
 
 ::placeholder {
   color: rgb(101, 86, 113);
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
-.btn {
+.btn.info {
+  position: absolute;
+  width: 150px;
   background-image: linear-gradient(
     to right,
     #5c258d 0%,
     #4389a2 51%,
     #5c258d 100%
   );
-  margin-top: 10px;
-  margin-right: 10px;
-  padding: 15px 45px;
+  padding: 12px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.btn.check {
+  background-image: linear-gradient(
+    to right,
+    #5c258d 0%,
+    #4389a2 51%,
+    #5c258d 100%
+  );
+  margin-top: 3px;
+  margin-right: 3px;
+  padding: 15px 25px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
