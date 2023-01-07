@@ -75,7 +75,8 @@ function restartGame() {
   document.querySelector('.prevguess').textContent = '';
   document.querySelector('.lowguess').textContent = '';
   document.querySelector('.highguess').textContent = '';
-  document.querySelector('.message').textContent = 'Start guessing! 🤔';
+  document.querySelector('.message').textContent =
+    'Game Restart! Start guessing! 🤔';
   document.querySelector('.guess').value = '';
   secretNumber = calculateSecretNumber();
 }
@@ -89,7 +90,6 @@ function popupModal(modaltype) {
 
 // Close the popup modal
 function closeModal() {
-  console.log('You made it');
   for (let i = 0; i < modal.length; i++) {
     if (!modal[i].classList.contains('hidden')) {
       modal[i].classList.add('hidden');
@@ -192,6 +192,7 @@ document.querySelector('.info').addEventListener('click', function () {
   popupModal(modalinfo);
 });
 
+// Restart the game
 document.querySelector('.restart').addEventListener('click', function () {
   restartGame();
 });
