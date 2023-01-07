@@ -20,7 +20,7 @@
     <div class="main">
       <div class="messagebar">
         <div class="messagerow">
-          <span class="message">Start guessing! 🤔</span>
+          <span>📢 |</span><span class="message">Start guessing! 🤔</span>
         </div>
         <div class="messagerowbutton">
           <button class="btn restart">🏳️</button>
@@ -29,15 +29,29 @@
       </div>
 
       <div class="game">
-        <div class="number">?</div>
         <div class="guessbox">
-          <p>Previous guesses: <span class="prevguess"></span></p>
-          <p>Highest guess: <span class="highguess"></span></p>
-          <p>Lowest guess: <span class="lowguess"></span></p>
+          <p>
+            <span class="prevguesslabel">Previous guesses:</span>
+            <span class="prevguess"></span>
+          </p>
+          <p>
+            <span class="highguesslabel"> Highest guess:</span>
+            <span class="highguess"></span>
+          </p>
+          <p>
+            <span class="lowguesslabel">Lowest guess:</span>
+            <span class="lowguess"></span>
+          </p>
         </div>
+        <div class="number">?</div>
         <div class="scorebox">
-          <p>Score: <span class="score">20</span></p>
-          <p>Highscore: <span class="highscore"> </span></p>
+          <p>
+            <span class="score">20</span> <span class="scorelabel">:Score</span>
+          </p>
+          <p>
+            <span class="highscore"></span>
+            <span class="highscorelabel">:Highscore</span>
+          </p>
         </div>
         <div class="guessinputbar">
           <input
@@ -45,7 +59,7 @@
             class="guess"
             placeholder="Guess a number"
             min="1"
-            max="20"
+            max="50"
           />
           <button class="btn check">✅ Check!</button>
         </div>

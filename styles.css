@@ -109,15 +109,16 @@ header {
 }
 
 .number {
-  color: #2c2576;
+  color: #ffffff;
   font-size: 150px;
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-  width: 30%;
-  height: 100%;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  width: 35%;
+  height: 235px;
   float: left;
-  margin-right: 5px;
+  margin-right: 0px;
   text-align: center;
-  border-radius: 250px;
+  background-image: linear-gradient(to top, rgb(58, 41, 70) 0%, #a6c1ee 100%);
+  border-radius: 5%;
 }
 
 .guessbox {
@@ -127,25 +128,14 @@ header {
   width: 32%;
   float: left;
   margin-right: 5px;
-  background: rgb(174, 209, 207);
-  background: linear-gradient(
-    297deg,
-    rgba(174, 209, 207, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
 }
 
 .scorebox {
   width: 32%;
-  float: left;
+  float: right;
   height: 100%;
   border-radius: 15px;
-  background: rgb(174, 209, 207);
-  background: linear-gradient(
-    297deg,
-    rgba(174, 209, 207, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  text-align: right;
 }
 
 .guess {
@@ -281,4 +271,42 @@ header {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+.scorelabel,
+.highscorelabel {
+  font-size: 20px;
+  background-color: #b2ade3;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.score,
+.highscore {
+  font-size: 15px;
+  background-color: #d7d4ef;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.prevguesslabel,
+.lowguesslabel,
+.highguesslabel {
+  font-size: 20px;
+  background-color: #b2ade3;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.prevguess,
+.lowguess,
+.highguess {
+  font-size: 15px;
+  background-color: #d7d4ef;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
 }

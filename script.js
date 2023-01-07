@@ -41,8 +41,12 @@ function setScore() {
 // Adjust the score after a not valid guess
 function penaltyScore(reason) {
   score = score - 2;
-  document.querySelector('.score').textContent = score;
-  displayMessage(reason);
+  if (score <= 0) {
+    gameOver();
+  } else {
+    document.querySelector('.score').textContent = score;
+    displayMessage(reason);
+  }
 }
 
 // Add the guess to the guess list
@@ -63,6 +67,17 @@ function displayMessage(message) {
   document.querySelector('.message').textContent = message;
 }
 
+// Game over
+function gameOver() {
+  displayMessage('☢️ Game over');
+  score = 0;
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').style.backgroundImage =
+    'linear-gradient(to top, #8b1212 0%, #da1414 100%)';
+  document.querySelector('.number').textContent = secretNumber;
+  document.querySelector('.secretnumber').textContent = secretNumber;
+}
+
 // Restarting the game
 function restartGame() {
   score = 20;
@@ -79,6 +94,8 @@ function restartGame() {
     'Game Restart! Start guessing! 🤔';
   document.querySelector('.guess').value = '';
   secretNumber = calculateSecretNumber();
+  document.querySelector('.number').style.backgroundImage =
+    'linear-gradient(to top, rgb(58, 41, 70) 0%, #a6c1ee 100%)';
 }
 
 // Side Functions
@@ -125,6 +142,8 @@ document.querySelector('.check').addEventListener('click', function () {
       });
       document.querySelector('.secretnumber').textContent = secretNumber;
       document.querySelector('.number').textContent = secretNumber;
+      document.querySelector('.number').style.backgroundImage =
+        'linear-gradient(to top, #068031 0%, #0df15d 100%)';
     }
     // Wrong guess
     else if (score > 1) {
@@ -133,7 +152,7 @@ document.querySelector('.check').addEventListener('click', function () {
         if (previousGuesses.includes(guess)) {
           penaltyScore('🚨 You already gave that number! -2 points!');
           addGuess(guess);
-          if (score <= 0) displayMessage('☢️ Game over');
+          if (score <= 0) gameOver();
         } else {
           // valid guess
           displayMessage(guess > secretNumber ? '⏬ Lower!' : '⏫ Higher!');
@@ -162,8 +181,7 @@ document.querySelector('.check').addEventListener('click', function () {
     }
     // Game over
     else {
-      displayMessage('☢️ Game over');
-      setScore();
+      gameOver();
     }
   }
   // Not a valid number guess
