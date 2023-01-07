@@ -63,6 +63,23 @@ function displayMessage(message) {
   document.querySelector('.message').textContent = message;
 }
 
+// Restarting the game
+function restartGame() {
+  score = 20;
+  previousGuesses = [];
+  highguess = 'reset';
+  lowguess = 'reset';
+  document.querySelector('.score').textContent = 20;
+  document.querySelector('.secretnumber').textContent = '?';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.prevguess').textContent = '';
+  document.querySelector('.lowguess').textContent = '';
+  document.querySelector('.highguess').textContent = '';
+  document.querySelector('.message').textContent = 'Start guessing! 🤔';
+  document.querySelector('.guess').value = '';
+  secretNumber = calculateSecretNumber();
+}
+
 // Side Functions
 // Open the popup modal
 function popupModal(modaltype) {
@@ -123,12 +140,20 @@ document.querySelector('.check').addEventListener('click', function () {
           setScore();
           addGuess(guess);
           // Lowest guess
-          if (guess < lowguess || typeof lowguess === 'undefined') {
+          if (
+            guess < lowguess ||
+            typeof lowguess === 'undefined' ||
+            lowguess === 'reset'
+          ) {
             lowguess = guess;
             document.querySelector('.lowguess').textContent = lowguess;
           }
           // highest guess
-          if (guess > highguess || typeof highguess === 'undefined') {
+          if (
+            guess > highguess ||
+            typeof highguess === 'undefined' ||
+            highguess === 'reset'
+          ) {
             highguess = guess;
             document.querySelector('.highguess').textContent = highguess;
           }
@@ -163,7 +188,10 @@ document.addEventListener('keydown', function (e) {
 });
 
 // Opening info modal
-
 document.querySelector('.info').addEventListener('click', function () {
   popupModal(modalinfo);
+});
+
+document.querySelector('.restart').addEventListener('click', function () {
+  restartGame();
 });

@@ -23,6 +23,7 @@
           <span class="message">Start guessing! 🤔</span>
         </div>
         <div class="messagerowbutton">
+          <button class="btn restart">🏳️</button>
           <button class="btn info">🎲 Game Rules</button>
         </div>
       </div>
@@ -56,18 +57,24 @@
       <button class="close-modal">&times;</button>
       <h1>🛃 Game rules</h1>
       <p>
-        Try to guess the secret number in as less guesses as possible. Every
-        wrong guess will decrease one point. When you guess the same number
-        twice it will decrease two points. If you guessed the secret number you
-        win the game!
+        Try to guess the secret number, which is between 1 and 50, in as less
+        guesses as possible. Every wrong guess will decrease one point. When you
+        guess the same number twice it will decrease two points.
       </p>
+      <p>If you guessed the secret number you win the game!</p>
+      <p>Click on the 🏳️ button to restart the game.</p>
     </div>
     <div class="modal modal-win hidden">
       <button class="close-modal">&times;</button>
       <h1>🏅 You won!</h1>
       <p>Congratulations on winning the game!</p>
-      <p>Your score: <span class="score"></span></p>
-      <p>Your highscore: <span class="highscore"></span></p>
+      <p>
+        Your score: <b><span class="score"></span></b>
+      </p>
+      <p>
+        Your highscore: <b><span class="highscore"></span></b>
+      </p>
+      <p>Click on the 🏳️ button to restart the game.</p>
     </div>
     <div class="overlay hidden"></div>
 

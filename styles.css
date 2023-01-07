@@ -117,13 +117,7 @@ header {
   float: left;
   margin-right: 5px;
   text-align: center;
-  border-radius: 15px;
-  background: rgb(174, 209, 207);
-  background: linear-gradient(
-    297deg,
-    rgba(174, 209, 207, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  border-radius: 250px;
 }
 
 .guessbox {
@@ -197,6 +191,29 @@ header {
   border: none;
   cursor: pointer;
   font-weight: bolder;
+}
+
+.btn.restart {
+  position: absolute;
+  width: 50px;
+  background-image: linear-gradient(
+    to right,
+    #5c258d 0%,
+    #4389a2 51%,
+    #5c258d 100%
+  );
+  padding: 6px 10px 8px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+  margin-left: -55px;
+  font-size: 20px;
 }
 
 .btn.check {
